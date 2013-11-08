@@ -1,0 +1,7 @@
+# nom du projet
+PROJECT(TritonAMR C CXX Fortran Java)
+# version minimum de cmake
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+SET(CMAKE_Java_LINK_EXECUTABLE "")
+ADD_EXECUTABLE(tritonAMR_Gui MainFrame.java)
+INSTALL(TARGETS tritonAMR_Gui DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)

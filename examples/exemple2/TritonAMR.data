@@ -1,0 +1,86 @@
+#------ OPTION ------
+DEBUG
+#-----------------------
+
+#------ EQUATION DE TRANSPORT : FRACTION VOLUMIQUE ------
+#--------------------------------------------------------
+#------ TYPE DE SCHEMA NUMERIQUE ------
+SCHEMA LAGOUTIERE DIRECTION_ALTERNEE
+#--------------------------------------
+
+#------ DISCRETISATION ------
+DISC 2D 101 101 0
+#--------------------------------------
+
+#------ DEFINITION DU DOMAINE DE CALCUL ------
+GRID 0.0  1.0  0.0  1.0  0.0  0.0
+#--------------------------------------
+
+#------ CONDITIONS AUX LIMITES ---------
+BC PERIODIQUE
+#---------------------------------------
+
+#----------------- INITIALISATION ------------------
+INIT BULLE CERCLE_KOTHE
+INIT ADVECTION DIRECTION_KOTHE_RIDER
+MISEAJOUR_ADVECTION PERIODE 6.0
+#--------------------------------------------------
+
+#------------ TEMPS MAX ------------
+MAX_TEMPS 8.0
+#--------------------------------------
+
+#----------- METHODE AMR --------------------
+#--- METHODE 1: X____Y___Z - X____Y____Z ---
+#--- METHODE 2: X____X - Y____Y - Z____Z ---
+AMR METHODE 1
+#----------------------------------------------
+
+#---- TYPE AMR (LOCAL-GLOBAL) --------
+AMR LOCAL
+#----------------------------------------------
+
+#---- NIVEAU DE RAFFINEMENT MAXIMUM --------
+AMR LMAX 1
+#----------------------------------------------
+
+#---------- NOMBRE DE MAILLES DE SECURITE -------
+AMR ISF 1
+#----------------------------------------------
+
+#------------ COEFICIENT DE RAFINEMENT -------
+AMR RI 2
+AMR RJ 2
+AMR RK 0
+#----------------------------------------------
+
+#------------ LONGUEUR MAX DES PATCHES -------
+AMR DIMCUT 200 200 0
+#----------------------------------------------
+
+#----- TOLERANCE DE CRITERE DE RAFFINEMENT -----
+AMR DELT 0.1
+#----------------------------------------------
+
+#----- TOLERANCE ALGORITHME GROUPING/CLUSTERING -----
+AMR TOL 0.8
+#----------------------------------------------
+
+#----- FREQUENCE DE GENERATION DE MAILLAGES -----
+AMR ITGFR 1
+#----------------------------------------------
+
+#-------- DELTA T OU CFL  -------
+DELTA_T_OR_CFL 2 0.9
+#--------------------------------------------------------
+
+#----- VISUALISATION PARAVIEW: FRACTION VOLUMIQUE -----
+VISU PARAVIEW CHAMP Y 20
+#-----------------------------------------------------
+
+#----- NOMBRE D'ITERATIONS -----
+RUN TritonAMR 1000
+#-----------------------------------------------------
+
+#----- FIN DU JDD -----
+END

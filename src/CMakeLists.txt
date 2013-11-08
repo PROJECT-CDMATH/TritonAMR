@@ -1,0 +1,14 @@
+# nom du projet
+PROJECT(TritonAMR C CXX Fortran)
+# version minimum de cmake
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+
+SET(SRC_USERS_DIR ${TritonAMR_SOURCE_DIR}/users)
+SET(SRC_BASE_DIR ${TritonAMR_SOURCE_DIR}/base)
+
+
+ADD_SUBDIRECTORY(${SRC_USERS_DIR})
+ADD_SUBDIRECTORY(${SRC_BASE_DIR})
+
+
+
