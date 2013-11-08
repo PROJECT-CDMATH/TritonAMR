@@ -60,7 +60,7 @@ def options_script(argv):
     result_dir = os.path.expandvars(result_dir)
     result_dir = os.path.abspath(result_dir)
     if not os.path.isdir(result_dir):
-        sys.stderr.write('Error: result dir \"' + result_dir + '\" is not a directory\n')
+        sys.stderr.write('Error: result dir \"' + result_dir + '\" is not a directory.\n')
         sys.exit(1)
         pass
 
@@ -70,7 +70,7 @@ def options_script(argv):
         src_dir = os.path.expandvars(src_dir)
         src_dir = os.path.abspath(src_dir)
         if not os.path.isdir(src_dir):
-            sys.stderr.write('Error: source dir \"' + src_dir + '\" is not a directory\n')
+            sys.stderr.write('Error: source dir \"' + src_dir + '\" is not a directory.\n')
             sys.exit(1)
             pass
         pass
@@ -79,7 +79,7 @@ def options_script(argv):
     jdd = os.path.expandvars(jdd)
     jdd = os.path.abspath(jdd)
     if not os.path.isfile(jdd):
-        sys.stderr.write('Error: jdd \"' + jdd + '\" is not existed\n')
+        sys.stderr.write('Error: jdd \"' + jdd + '\" does not exist.\n')
         sys.exit(1)
         pass
  
@@ -92,19 +92,19 @@ def init_verify_env_tritonAMR():
     tritonAMR_home=os.getenv("TritonAMR_HOME")
     
     if not tritonAMR_home:
-        sys.stderr.write('Error: TritonAMR_HOME is not defined\n')
+        sys.stderr.write('Error: TritonAMR_HOME is not defined.\n')
         sys.exit(1)
         pass
 
     lib_dir_tritonAMR=os.path.join(tritonAMR_home,"lib")
     if not os.path.isdir(lib_dir_tritonAMR):
-        sys.stderr.write('Error: library directory \"' + lib_dir_tritonAMR + '\" is not a directory\n')
+        sys.stderr.write('Error: library directory \"' + lib_dir_tritonAMR + '\" is not a directory.\n')
         sys.exit(1)
         pass    
 
     exec_tritonAMR=os.path.join(tritonAMR_home,"bin","tritonAMR")
     if not os.path.isfile(exec_tritonAMR):
-        sys.stderr.write('Error: binary \"' + exec_tritonAMR + '\" is not existed\n')
+        sys.stderr.write('Error: binary \"' + exec_tritonAMR + '\" does not exist.\n')
         sys.exit(1)
         pass    
 
